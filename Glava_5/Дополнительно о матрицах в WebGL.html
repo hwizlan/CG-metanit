@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Дополнительно о матрицах в WebGL</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+<h1> Глава 5. Дополнительно о матрицах в WebGL</h1>
+<canvas id="canvas3D" width="400" height="300">Ваш браузер не поддерживает элемент canvas</canvas>
+<script  type="text/javascript" src="../js/gl-matrix-min.js"></script>
+<!-- фрагментный шейдер -->
+<script id="shader-fs" type="x-shader/x-fragment">
+  void main(void) {
+    gl_FragColor = vec4(0.0, 1.0, 0.0, 1.0);
+  }
+</script>
+<!-- вершинный шейдер -->
+<script id="shader-vs" type="x-shader/x-vertex">
+  attribute vec3 aVertexPosition;
+   uniform mat4 uMVMatrix;
+  uniform mat4 uPMatrix;
+  void main(void) {
+     gl_Position = uPMatrix * uMVMatrix * vec4(aVertexPosition, 1.0);
+  }
+</script>
+<script src="../js/Chapter5Дополнительно%20о%20матрицах%20в%20WebGL.js">
+</script>
+</body>
+</html>
